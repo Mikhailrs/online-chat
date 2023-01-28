@@ -1,2 +1,18 @@
-<%= link_to room.title, room_path(room.title), target: "_blank", rel: "noopener noreferrer" %>
-<br>
+<div class="each flex hover:shadow-lg select-none p-8 rounded-md border-gray-300 border mb-3 hover:border-gray-500">
+  <div class="left">
+    <div class="header text-blue-600 font-semibold text-2xl">
+      <%= link_to room.title, room_path(room.title), target: "_blank", rel: "noopener noreferrer" %>
+    </div>
+    <div class="desc text-gray-600">
+      <%= room.user.email %>
+    </div>
+  </div>
+  <div class="right m-auto mr-0">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </div>
+  </div>
+</div>
+
