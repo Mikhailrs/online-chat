@@ -7,6 +7,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  def show
+    @room = Room.find_by!(title: params[:title])
+    @message = current_user&.messages&.build
+    @messages = @room.messages
+  end
+
   def index
     @room = Room.new
     @rooms = Room.all

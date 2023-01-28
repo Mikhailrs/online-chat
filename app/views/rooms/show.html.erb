@@ -1,0 +1,22 @@
+<div class="md:container md:mx-auto">
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <% if @room.messages.present? %>
+    <ul class="divide-y divide-gray-200">
+      <li>
+        <%= turbo_stream_from @room %>
+        <%= turbo_frame_tag :messages do %>
+          <%= render @messages %>
+        <% end %>
+      </li>
+    </ul>
+    <% end %>
+  </div>
+  <div class="bottom-4 left-2 p-4">
+  <%= form_with model: @message do |f| %>
+    <%= f.text_field :body, autofocus: true, required: true, class: "text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none",
+                     placeholder: "Enter your message" %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+  <% end %>
+  </div>
+</div>
