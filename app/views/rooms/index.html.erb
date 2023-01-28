@@ -1,5 +1,13 @@
 <div class="md:container md:mx-auto">
   <div class="main flex flex-col m-5">
+    <% if user_signed_in? %>
+      <div>
+        <%= turbo_stream_from :notifications %>
+        <%= turbo_frame_tag "notifications", src: notifications_path %>
+      </div>
+    <% end %>
+  </div>
+  <div class="main flex flex-col m-5">
     <%= render 'rooms/form_room' %>
     <div class="header">
       <div class="text-3xl font-bold text-gray-600 mb-4">Chats</div>
