@@ -10,11 +10,14 @@
 
     <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
   </head>
 
   <body>
   <%= render 'layouts/header' %>
-
+  <audio autoplay>
+    <source src="audios/icq.mp3" type="audio/mp3">
+  </audio>
     <%= yield %>
   </body>
 </html>
